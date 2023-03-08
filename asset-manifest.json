@@ -1,19 +1,19 @@
 {
   "files": {
-    "main.css": "/shuydo.github.io/stuff/static/css/main.6d733e87.css",
-    "main.js": "/shuydo.github.io/stuff/static/js/main.25dde9c0.js",
-    "static/media/computer.png": "/shuydo.github.io/stuff/static/media/computer.5e56530d0ea3793fd73d.png",
-    "static/media/banner.png": "/shuydo.github.io/stuff/static/media/banner.60b57e7c22678c62bf30.png",
-    "static/media/avatar.jpg": "/shuydo.github.io/stuff/static/media/avatar.4bc3b938691acbda7100.jpg",
-    "static/media/devices.png": "/shuydo.github.io/stuff/static/media/devices.a0974f63230d0b90cbec.png",
-    "static/media/shoe.png": "/shuydo.github.io/stuff/static/media/shoe.db601c8f04844976b606.png",
-    "static/media/logo.svg": "/shuydo.github.io/stuff/static/media/logo.fb6afde46b43989ab58d298634d1c757.svg",
-    "index.html": "/shuydo.github.io/stuff/index.html",
-    "main.6d733e87.css.map": "/shuydo.github.io/stuff/static/css/main.6d733e87.css.map",
-    "main.25dde9c0.js.map": "/shuydo.github.io/stuff/static/js/main.25dde9c0.js.map"
+    "main.css": "/stuff/static/css/main.f54ebe33.css",
+    "main.js": "/stuff/static/js/main.677d5cdb.js",
+    "static/media/computer.png": "/stuff/static/media/computer.5e56530d0ea3793fd73d.png",
+    "static/media/banner.png": "/stuff/static/media/banner.60b57e7c22678c62bf30.png",
+    "static/media/avatar.jpg": "/stuff/static/media/avatar.4bc3b938691acbda7100.jpg",
+    "static/media/devices.png": "/stuff/static/media/devices.a0974f63230d0b90cbec.png",
+    "static/media/shoe.png": "/stuff/static/media/shoe.db601c8f04844976b606.png",
+    "static/media/logo.svg": "/stuff/static/media/logo.fb6afde46b43989ab58d298634d1c757.svg",
+    "index.html": "/stuff/index.html",
+    "main.f54ebe33.css.map": "/stuff/static/css/main.f54ebe33.css.map",
+    "main.677d5cdb.js.map": "/stuff/static/js/main.677d5cdb.js.map"
   },
   "entrypoints": [
-    "static/css/main.6d733e87.css",
-    "static/js/main.25dde9c0.js"
+    "static/css/main.f54ebe33.css",
+    "static/js/main.677d5cdb.js"
   ]
 }
