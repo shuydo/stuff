@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
+import { useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
-
-import styles from "../../styles/Category.module.css";
 
 import { useGetProductsQuery } from "../../features/api/apiSlice";
 
+import styles from "../../styles/Category.module.css";
+
 import Products from "../Products/Products";
-import { useSelector } from "react-redux";
 
 const Category = () => {
   const { id } = useParams();
@@ -25,56 +25,53 @@ const Category = () => {
     ...defaultValues,
   };
 
+  const [isEnd, setEnd] = useState(false);
+  const [cat, setCat] = useState(null);
+  const [items, setItems] = useState([]);
   const [values, setValues] = useState(defaultValues);
   const [params, setParams] = useState(defaultParams);
-  const [cat, setCat] = useState(null);
-  const [items, setItems] = useState([]); //for pag
-  const [isEnd, setEnd] = useState(false); //end item when work pag
 
-  const { data, isLoading, isSuccess } = useGetProductsQuery(params);
+  const { data = [], isLoading, isSuccess } = useGetProductsQuery(params);
 
   useEffect(() => {
     if (!id) return;
 
     setValues(defaultValues);
-    setItems([]); //clear products when change cat
-    setEnd(false); //return button See more when change cat
-    setParams({ ...defaultParams, categoryId: id }); //params was change to defPar for return offset
-  }, [id, defaultValues, defaultParams]);
+    setItems([]);
+    setEnd(false);
+    setParams({ ...defaultParams, categoryId: id });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [id]);
 
   useEffect(() => {
-    //to serv pag    // if (isLoading || !data.length) return;
     if (isLoading) return;
+
     if (!data.length) return setEnd(true);
-    // if (!products.length) return setIsEnd(true);
 
-    const products = Object.values(data);
-
-    setItems(_items => [..._items, ...products]);
-  }, [data, isLoading]); //isLoading
+    setItems((_items) => [..._items, ...data]);
+  }, [data, isLoading]);
 
   useEffect(() => {
-    //to serv category
     if (!id || !list.length) return;
 
-    const category = list.find(item => item.id === +id); //*1 //{ name }
+    const category = list.find((item) => item.id === id * 1);
+
     setCat(category);
   }, [list, id]);
 
-  // console.log(data);
-
-  const handleChange = ({ target: { value, name } }) =>
+  const handleChange = ({ target: { value, name } }) => {
     setValues({ ...values, [name]: value });
+  };
 
-  const handleSubmit = evt => {
-    evt.preventDefault();
-    setItems([]); //when filter product clear product list before render
-    setEnd(false); //for button visibility
-    setParams({ ...defaultParams, ...values }); //reset when change filter
+  const handleSubmit = (e) => {
+    e.preventDefault();
+
+    setItems([]);
+    setEnd(false);
+    setParams({ ...defaultParams, ...values });
   };
 
   const handleReset = () => {
-    //UI filters reset
     setValues(defaultValues);
     setParams(defaultParams);
     setEnd(false);
@@ -83,40 +80,39 @@ const Category = () => {
   return (
     <section className={styles.wrapper}>
       <h2 className={styles.title}>{cat?.name}</h2>
+
       <form className={styles.filters} onSubmit={handleSubmit}>
         <div className={styles.filter}>
           <input
             type="text"
             name="title"
-            placeholder="Product name"
             onChange={handleChange}
+            placeholder="Product name"
             value={values.title}
           />
         </div>
-
         <div className={styles.filter}>
           <input
             type="number"
             name="price_min"
-            placeholder="0"
             onChange={handleChange}
+            placeholder="0"
             value={values.price_min}
           />
           <span>Price from</span>
         </div>
-
         <div className={styles.filter}>
           <input
             type="number"
             name="price_max"
-            placeholder="0"
             onChange={handleChange}
+            placeholder="0"
             value={values.price_max}
           />
           <span>Price to</span>
         </div>
 
-        <button type="submit" hidden></button>
+        <button type="submit" hidden />
       </form>
 
       {isLoading ? (
@@ -134,7 +130,7 @@ const Category = () => {
           amount={items.length}
         />
       )}
-      {/* preloader? */}
+
       {!isEnd && (
         <div className={styles.more}>
           <button
