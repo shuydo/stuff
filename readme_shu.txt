@@ -2,6 +2,15 @@ https://fantastic-marshmallow-726144.netlify.app/
 
 yarn add react-router-dom @reduxjs/toolkit axios
 
+------------------------
+http://it-shpora.pp.ua/reactjs-github-pages-%D1%80%D0%B0%D0%B7%D0%B2%D0%BE%D1%80%D0%B0%D1%87%D0%B8%D0%B2%D0%B0%D0%B5%D0%BC-%D0%BF%D1%80%D0%BE%D0%B5%D0%BA%D1%82-deploy-%D0%BD%D0%B0-github/
+
+ghP - yarn add gh-pages -D
+pcgs: 
+  "predeploy": "npm run build",
+  "deploy": "gh-pages -d build"
+-------------------
+
 https://fakeapi.platzi.com/en/rest/categories
 
 Готовый код - https://github.com/tamkovich-yana/stuff
